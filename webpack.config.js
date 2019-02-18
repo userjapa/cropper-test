@@ -2,7 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  // entry: './src/main.js',
+  entry: () => new Promise((resolve) => resolve(['@babel/polyfill', './src/main.js'])),
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
